@@ -1,0 +1,31 @@
+version: '3.3'
+
+services:
+  web:
+    image: rossedlin/php-apache:8.2
+    container_name: laravel-crud-web
+    ports:
+      - "80:80"
+    depends_on:
+      - db
+    volumes:
+      - ./:/var/www
+  db:
+    image: 'mysql/mysql-server:8.0'
+    container_name: laravel-crud-db
+    ports:
+      - '3306:3306'
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: Passw0rd
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: Passw0rd
+#    volumes:
+#      - 'database:/var/lib/mysql'
+
+
+#volumes:
+#  database:

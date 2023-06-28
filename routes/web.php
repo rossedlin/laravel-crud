@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', '\App\Http\Controllers\AppController@index');
+Route::get('/load', '\App\Http\Controllers\AppController@load');
+
+Route::post('/', '\App\Http\Controllers\AppController@create');
+Route::get('/{file}', '\App\Http\Controllers\AppController@read');
+Route::post('/{file}', '\App\Http\Controllers\AppController@update');
+Route::delete('/{file}', '\App\Http\Controllers\AppController@destroy');
