@@ -15,7 +15,6 @@ export default {
             this.file = e.target.files[0];
         },
         async load() {
-            console.log('load()');
             this.files = (await axios.get('/load')).data;
         },
         async create(e) {
@@ -52,25 +51,21 @@ export default {
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="mt-5 mb-5">
-                    <h1>Laravel CRUD (File Upload)</h1>
-                </div>
-
-                <form class="row mt-5 mb-5" method="post" enctype="multipart/form-data">
-                    <div class="col-9">
-                        <input class="form-control form-control-lg"
-                               name="file"
-                               type="file"
-                               v-on:change="handleFileUpload"/>
-                    </div>
-                    <div class="col-3">
-                        <button type="submit" class="btn btn-primary mt-1" @click="create">Create</button>
-                    </div>
-                </form>
+            <div class="col-12 mt-5 mb-5 text-center">
+                <h1>Laravel CRUD (File Upload)</h1>
             </div>
 
-            <div class="col-12">
+            <div class="col-9">
+                <input class="form-control form-control-lg"
+                       name="file"
+                       type="file"
+                       v-on:change="handleFileUpload"/>
+            </div>
+            <div class="col-3">
+                <button type="submit" class="btn btn-primary mt-1" @click="create">Create</button>
+            </div>
+
+            <div class="col-12 mt-5">
                 <table class="table">
                     <thead>
                     <tr>

@@ -8,10 +8,8 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Routing\Redirector;
 
 class AppController extends Controller
 {
@@ -41,10 +39,10 @@ class AppController extends Controller
 
     /**
      * @param Request $request
-     * @return Application|\Illuminate\Foundation\Application|RedirectResponse|Redirector
+     * @return JsonResponse
      * @throws FileNotFoundException
      */
-    public function create(Request $request)
+    public function create(Request $request): JsonResponse
     {
         $file = new File();
         $uploaded = $request->file('file');
