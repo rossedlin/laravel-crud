@@ -4,6 +4,9 @@ on:
     workflows: ["Test Laravel"]
     types:
       - completed
+  schedule:
+    # At 02:00 everyday
+    - cron:  '0 2 * * *'
 
 env:
   SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
