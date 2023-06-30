@@ -30,16 +30,19 @@ curl https://raw.githubusercontent.com/rossedlin/laravel-crud/master/bash.sh -o 
 
 chmod +x *.sh
 
+## Artisan
+
+docker compose run --rm web bash -c "php artisan make:model File"
+
 # NPM (pre)
 
-docker compose run web bash -c "npm install bootstrap vue@next vue-loader@next @vitejs/plugin-vue"
+docker compose run --rm web bash -c "npm install bootstrap vue@next vue-loader@next @vitejs/plugin-vue"
 
 ## GitHub Overrides
 
 curl https://raw.githubusercontent.com/rossedlin/laravel-crud/master/vite.config.js -o ./vite.config.js
 curl https://raw.githubusercontent.com/rossedlin/laravel-crud/master/routes/web.php -o ./routes/web.php
 curl https://raw.githubusercontent.com/rossedlin/laravel-crud/master/app/Http/Controllers/AppController.php -o ./app/Http/Controllers/AppController.php
-curl https://raw.githubusercontent.com/rossedlin/laravel-crud/master/app/Models/File.php -o ./app/Models/File.php
 curl https://raw.githubusercontent.com/rossedlin/laravel-crud/master/database/migrations/2023_06_19_154135_create_files_table.php -o ./database/migrations/2023_06_19_154135_create_files_table.php
 curl https://raw.githubusercontent.com/rossedlin/laravel-crud/master/resources/js/app.js -o ./resources/js/app.js
 curl https://raw.githubusercontent.com/rossedlin/laravel-crud/master/resources/js/App.vue -o ./resources/js/App.vue
@@ -48,11 +51,11 @@ curl https://raw.githubusercontent.com/rossedlin/laravel-crud/master/resources/v
 ## Env
 
 curl https://raw.githubusercontent.com/rossedlin/laravel-crud/master/.env.example -o ./.env.example
-docker compose run web bash -c "rm .env; cp .env.example .env; php artisan key:generate"
+docker compose run --rm web bash -c "rm .env; cp .env.example .env; php artisan key:generate"
 
 # NPM (post)
 
-docker compose run web bash -c "npm run build"
+docker compose run --rm web bash -c "npm run build"
 
 ## Git (post)
 
