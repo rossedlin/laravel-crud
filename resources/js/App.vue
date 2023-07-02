@@ -11,7 +11,7 @@ export default {
         this.load();
     },
     methods: {
-        handleFileUpload(e) {
+        upload(e) {
             this.file = e.target.files[0];
         },
         async load() {
@@ -59,7 +59,7 @@ export default {
                 <input class="form-control form-control-lg"
                        name="file"
                        type="file"
-                       v-on:change="handleFileUpload"/>
+                       v-on:change="upload"/>
             </div>
             <div class="col-3">
                 <button type="submit" class="btn btn-primary mt-1" @click="create">Create</button>

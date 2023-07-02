@@ -17,7 +17,8 @@ Coming soon...
 
 - `composer create-project laravel/laravel laravel-crud`
 - `cd laravel-crud`
-- `npm install bootstrap vue@next vue-loader@next @vitejs/plugin-vue`
+- `npm install bootstrap`
+- `npm install vue@next vue-loader@next @vitejs/plugin-vue`
 
 - `php artisan make:controller AppController`
 - `php artisan make:model File --migration`
