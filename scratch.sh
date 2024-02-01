@@ -32,11 +32,13 @@ chmod +x *.sh
 
 ## Artisan
 
-docker compose run --rm web bash -c "php artisan make:model File"
+docker compose run --rm web bash -c "php artisan make:controller AppController"
+docker compose run --rm web bash -c "php artisan make:model File" #Don't include --migration (due to timestamp on file)
 
 # NPM (pre)
 
-docker compose run --rm web bash -c "npm install bootstrap vue@next vue-loader@next @vitejs/plugin-vue"
+docker compose run --rm web bash -c "npm install bootstrap"
+docker compose run --rm web bash -c "npm install vue vue-loader@next @vitejs/plugin-vue"
 
 ## GitHub Overrides
 
